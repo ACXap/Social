@@ -43,11 +43,86 @@ namespace VK.Data
         [JsonProperty("can_access_closed")]
         public bool CanAccessClosed { get; set; }
 
+        /// <summary>
+        /// Содержимое поля «О себе» из профиля
+        /// </summary>
         [JsonProperty("about")]
         public string About { get; set; }
 
+        /// <summary>
+        /// Содержимое поля «Деятельность» из профиля
+        /// </summary>
         [JsonProperty("activities")]
         public string Activities { get; set; }
+
+        /// <summary>
+        /// Дата рождения.
+        /// Возвращается в формате D.M.YYYY или D.M (если год рождения скрыт). Если дата рождения скрыта целиком, поле отсутствует в ответе
+        /// </summary>
+        [JsonProperty("bdate")]
+        public string Bdate { get; set; }
+
+        /// <summary>
+        /// Информация о том, находится ли текущий пользователь в черном списке
+        /// 1 — находится; 0 — не находится
+        /// </summary>
+        [JsonProperty("blacklisted")]
+        public int Blacklisted { get; set; }
+
+        /// <summary>
+        /// Информация о том, находится ли пользователь в черном списке у текущего пользователя
+        /// 1 — находится; 0 — не находится
+        /// </summary>
+        [JsonProperty("blacklisted_by_me")]
+        public int BlacklistedByMe { get; set; }
+
+        /// <summary>
+        /// Содержимое поля «Любимые книги» из профиля пользователя
+        /// </summary>
+        [JsonProperty("books")]
+        public string Books { get; set; }
+
+        /// <summary>
+        /// Информация о том, может ли текущий пользователь оставлять записи на стене
+        /// 1 — может; 0 — не может
+        /// </summary>
+        [JsonProperty("can_post")]
+        public int CanPost { get; set; }
+
+        /// <summary>
+        /// Информация о том, может ли текущий пользователь видеть чужие записи на стене
+        /// 1 — может; 0 — не может
+        /// </summary>
+        [JsonProperty("can_see_all_posts")]
+        public int CanSeeAllPosts { get; set; }
+
+        // <summary>
+        /// Информация о том, может ли текущий пользователь видеть аудиозаписи
+        /// 1 — может; 0 — не может
+        /// </summary>
+        [JsonProperty("can_see_audio")]
+        public int CanSeeAudio { get; set; }
+
+        /// <summary>
+        /// Информация о том, может ли текущий пользователь отправить личное сообщен
+        /// 1 — может; 0 — не может
+        /// </summary>
+        [JsonProperty("can_write_private_message")]
+        public long CanWritePrivateMessage { get; set; }
+
+        /// <summary>
+        /// Информация о том, будет ли отправлено уведомление пользователю о заявке в друзья от текущего пользователя
+        /// 1 —  уведомление будет отправлено; 0 —  уведомление не будет отправлено
+        /// </summary>
+        [JsonProperty("can_send_friend_request")]
+        public long CanSendFriendRequest { get; set; }
+
+        /// <summary>
+        /// Информация о карьере пользователя
+        /// </summary>
+        [JsonProperty("can_send_friend_request")]
+        public object Career { get; set; }
+
 
         [JsonProperty("sex")]
         public long Sex { get; set; }
@@ -61,8 +136,6 @@ namespace VK.Data
         [JsonProperty("screen_name")]
         public string ScreenName { get; set; }
 
-        [JsonProperty("bdate")]
-        public string Bdate { get; set; }
 
         [JsonProperty("city")]
         public Place City { get; set; }
@@ -115,20 +188,9 @@ namespace VK.Data
         [JsonProperty("online_mobile")]
         public long OnlineMobile { get; set; }
 
-        [JsonProperty("can_post")]
-        public long CanPost { get; set; }
+        
 
-        [JsonProperty("can_see_all_posts")]
-        public long CanSeeAllPosts { get; set; }
 
-        [JsonProperty("can_see_audio")]
-        public long CanSeeAudio { get; set; }
-
-        [JsonProperty("can_write_private_message")]
-        public long CanWritePrivateMessage { get; set; }
-
-        [JsonProperty("can_send_friend_request")]
-        public long CanSendFriendRequest { get; set; }
 
         [JsonProperty("site")]
         public string Site { get; set; }
@@ -151,11 +213,7 @@ namespace VK.Data
         [JsonProperty("followers_count")]
         public long FollowersCount { get; set; }
 
-        [JsonProperty("blacklisted")]
-        public long Blacklisted { get; set; }
 
-        [JsonProperty("blacklisted_by_me")]
-        public long BlacklistedByMe { get; set; }
 
         [JsonProperty("is_favorite")]
         public long IsFavorite { get; set; }
