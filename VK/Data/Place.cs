@@ -1,17 +1,19 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VK.Data
 {
+
     public class Place
     {
+        /// <summary>
+        /// Идентификатор места
+        /// </summary>
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Название места
+        /// </summary>
         [JsonProperty("title")]
         public string Title { get; set; }
     }

@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
-using System;
+using System.Collections.Generic;
 
 namespace VK.Data
 {
+    /// <summary>
+    /// Пользователь
+    /// </summary>
     public class EntityPerson
     {
         /// <summary>
@@ -192,7 +195,7 @@ namespace VK.Data
         // [JsonProperty("exports")]
         // public object Exports { get; set; }
 
-         // /// <summary>
+        // /// <summary>
         // /// Имя в заданном падеже
         // /// </summary>
         //  [JsonProperty("first_name_case")]
@@ -285,65 +288,228 @@ namespace VK.Data
         [JsonProperty("lists")]
         public string Lists { get; set; }
 
-        [JsonProperty("sex")]
-        public long Sex { get; set; }
+        /// <summary>
+        /// Девичья фамилия
+        /// </summary>
+        [JsonProperty("maiden_name")]
+        public string MaidenName { get; set; }
 
+        /// <summary>
+        /// Информация о военной службе пользователя
+        /// </summary>
+        [JsonProperty("military")]
+        public List<Military> Military { get; set; }
+
+        /// <summary>
+        /// Содержимое поля «Любимые фильмы» из профиля пользователя
+        /// </summary>
+        [JsonProperty("movies")]
+        public string Movies { get; set; }
+
+        /// <summary>
+        /// Содержимое поля «Любимая музыка» из профиля пользователя
+        /// </summary>
+        [JsonProperty("music")]
+        public string Music { get; set; }
+
+        /// <summary>
+        /// Никнейм (отчество) пользователя
+        /// </summary>
         [JsonProperty("nickname")]
         public string Nickname { get; set; }
 
+        /// <summary>
+        /// Информация о текущем роде занятия пользователя
+        /// </summary>
+        [JsonProperty("occupation")]
+        public Occupation Occupation { get; set; }
 
+        /// <summary>
+        /// Информация о том, находится ли пользователь сейчас на сайте
+        /// </summary>
+        [JsonProperty("online")]
+        public int Online { get; set; }
 
-        [JsonProperty("screen_name")]
-        public string ScreenName { get; set; }
+        /// <summary>
+        /// Если используется именно приложение, дополнительно возвращается поле содержащее его идентификатор
+        /// </summary>
+        [JsonProperty("online_app")]
+        public int OnlineApp { get; set; }
 
+        /// <summary>
+        /// Если пользователь использует мобильное приложение либо мобильную версию, 
+        /// </summary>
+        [JsonProperty("online_mobile")]
+        public int OnlineMobile { get; set; }
+
+        /// <summary>
+        /// Информация о полях из раздела «Жизненная позиция» 
+        /// </summary>
+        [JsonProperty("personal")]
+        public Personal Personal { get; set; }
+
+        /// <summary>
+        /// url квадратной фотографии пользователя, имеющей ширину 50 пикселей.
+        /// В случае отсутствия у пользователя фотографии возвращается https://vk.com/images/camera_50.png
+        /// </summary>
         [JsonProperty("photo_50")]
-        public Uri Photo50 { get; set; }
+        public string Photo50 { get; set; }
 
+        /// <summary>
+        /// url квадратной фотографии пользователя, имеющей ширину 100 пикселей.
+        /// В случае отсутствия у пользователя фотографии возвращается https://vk.com/images/camera_100.png
+        /// </summary>
         [JsonProperty("photo_100")]
-        public Uri Photo100 { get; set; }
+        public string Photo100 { get; set; }
 
+        /// <summary>
+        /// url квадратной фотографии, имеющей ширину 200 пикселей.
+        /// Если у пользователя отсутствует фотография таких размеров, в ответе вернется https://vk.com/images/camera_200.png
+        /// </summary>
         [JsonProperty("photo_200")]
-        public Uri Photo200 { get; set; }
+        public string Photo200 { get; set; }
 
+        /// <summary>
+        /// url фотографии пользователя, имеющей ширину 200 пикселей.
+        /// В случае отсутствия у пользователя фотографии возвращается https://vk.com/images/camera_200.png
+        /// </summary>
         [JsonProperty("photo_200_orig")]
-        public Uri Photo200_Orig { get; set; }
+        public string Photo200_Orig { get; set; }
 
+        /// <summary>
+        /// url квадратной фотографии с максимальной шириной.
+        /// Может быть возвращена фотография, имеющая ширину как 200, так и 100 пикселей.
+        /// В случае отсутствия у пользователя фотографии возвращается https://vk.com/images/camera_200.png
+        /// </summary>
         [JsonProperty("photo_max")]
-        public Uri PhotoMax { get; set; }
+        public string PhotoMax { get; set; }
 
+        /// <summary>
+        /// url фотографии, имеющей ширину 400 пикселей.
+        /// Если у пользователя отсутствует фотография такого размера, в ответе вернется https://vk.com/images/camera_400.png
+        /// </summary>
         [JsonProperty("photo_400_orig")]
-        public Uri Photo400_Orig { get; set; }
+        public string Photo400_Orig { get; set; }
 
+        /// <summary>
+        /// url фотографии максимального размера.
+        /// Может быть возвращена фотография, имеющая ширину как 400, так и 200 пикселей.
+        /// В случае отсутствия у пользователя фотографии возвращается https://vk.com/images/camera_400.png
+        /// </summary>
         [JsonProperty("photo_max_orig")]
-        public Uri PhotoMaxOrig { get; set; }
+        public string PhotoMaxOrig { get; set; }
 
+        /// <summary>
+        /// Строковый идентификатор главной фотографии профиля пользователя в формате {user_id}_{photo_id},
+        /// например, 6492_192164258. Обратите внимание, это поле может отсутствовать в ответе
+        /// </summary>
         [JsonProperty("photo_id")]
         public string PhotoId { get; set; }
 
-        [JsonProperty("online")]
-        public long Online { get; set; }
+        /// <summary>
+        /// Любимые цитаты
+        /// </summary>
+        [JsonProperty("quotes")]
+        public string Quotes { get; set; }
 
-        [JsonProperty("online_app")]
-        public long OnlineApp { get; set; }
+        /// <summary>
+        /// Список родственников
+        /// </summary>
+        [JsonProperty("relatives")]
+        public List<Relative> Relatives { get; set; }
 
-        [JsonProperty("online_mobile")]
-        public long OnlineMobile { get; set; }
+        /// <summary>
+        /// Семейное положение
+        /// 1 — не женат/не замужем; 2 — есть друг/есть подруга;
+        /// 3 — помолвлен/помолвлена; 4 — женат/замужем;
+        /// 5 — всё сложно; 6 — в активном поиске;
+        /// 7 — влюблён/влюблена; 8 — в гражданском браке;
+        /// 0 — не указано
+        /// </summary>
+        [JsonProperty("relation")]
+        public int Relation { get; set; }
 
+        /// <summary>
+        /// Если в семейном положении указан другой пользователь,
+        /// дополнительно возвращается объект relation_partner, содержащий id и имя этого человека
+        /// </summary>
+        [JsonProperty("relation_partner")]
+        public Relative RelationPartner { get; set; }
+
+        /// <summary>
+        /// Список школ, в которых учился пользователь
+        /// </summary>
+        [JsonProperty("schools")]
+        public List<School> Schools { get; set; }
+
+        /// <summary>
+        /// Короткое имя страницы
+        /// </summary>
+        [JsonProperty("screen_name")]
+        public string ScreenName { get; set; }
+
+        /// <summary>
+        /// Пол
+        /// 1 — женский; 2 — мужской; 0 — пол не указан
+        /// </summary>
+        [JsonProperty("sex")]
+        public int Sex { get; set; }
+
+        /// <summary>
+        /// Адрес сайта, указанный в профиле
+        /// </summary>
         [JsonProperty("site")]
         public string Site { get; set; }
 
+        /// <summary>
+        /// Статус пользователя.
+        /// Возвращается строка, содержащая текст статуса, расположенного в профиле под именем.
+        /// Если включена опция «Транслировать в статус играющую музыку»,
+        /// возвращается дополнительное поле status_audio, содержащее информацию о композиции
+        /// </summary>
         [JsonProperty("status")]
         public string Status { get; set; }
 
+        /// <summary>
+        /// Временная зона. Только при запросе информации о текущем пользователе
+        /// </summary>
+        [JsonProperty("timezone")]
+        public int Timezone { get; set; }
 
+        /// <summary>
+        /// Информация о том, есть ли на странице пользователя «огонёк»
+        /// </summary>
+        [JsonProperty("trending")]
+        public int Trending { get; set; }
 
+        /// <summary>
+        /// Любимые телешоу
+        /// </summary>
+        [JsonProperty("tv")]
+        public string Tv { get; set; }
+
+        /// <summary>
+        /// Возвращается 1, если страница пользователя верифицирована, 0 — если нет
+        /// </summary>
         [JsonProperty("verified")]
-        public long Verified { get; set; }
+        public int Verified { get; set; }
 
+        /// <summary>
+        /// Режим стены по умолчанию. Возможные значения: owner, all
+        /// </summary>
+        [JsonProperty("wall_default")]
+        public string WallDefault { get; set; }
+
+        /// <summary>
+        /// Видимо можно ли приглашать в группы
+        /// </summary>
         [JsonProperty("can_be_invited_group")]
         public bool CanBeInvitedGroup { get; set; }
 
-        //[JsonProperty("occupation")]
-        //public Occupation Occupation { get; set; }
+        /// <summary>
+        /// Список вузов, в которых учился пользователь
+        /// </summary>
+        [JsonProperty("universities")]
+        public List<University> Universities { get; set; }
     }
 }
