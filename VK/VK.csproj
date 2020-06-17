@@ -50,11 +50,11 @@
     <Compile Include="Data\Military.cs" />
     <Compile Include="Data\Occupation.cs" />
     <Compile Include="Data\Personal.cs" />
+    <Compile Include="Data\Photo.cs" />
     <Compile Include="Data\Place.cs" />
     <Compile Include="Data\RelationPartner.cs" />
     <Compile Include="Data\Relative.cs" />
     <Compile Include="Data\School.cs" />
-    <Compile Include="Data\Temp.cs" />
     <Compile Include="Data\University.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepositoryInput.cs" />

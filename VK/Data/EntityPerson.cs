@@ -99,7 +99,7 @@ namespace VK.Data
         [JsonProperty("can_see_all_posts")]
         public int CanSeeAllPosts { get; set; }
 
-        // <summary>
+        /// <summary>
         /// Информация о том, может ли текущий пользователь видеть аудиозаписи
         /// 1 — может; 0 — не может
         /// </summary>
@@ -123,8 +123,8 @@ namespace VK.Data
         /// <summary>
         /// Информация о карьере пользователя
         /// </summary>
-        [JsonProperty("can_send_friend_request")]
-        public object Career { get; set; }
+        [JsonProperty("career")]
+        public List<Career> Careers { get; set; }
 
         /// <summary>
         /// Информация о городе, указанном на странице пользователя в разделе «Контакты»
@@ -188,18 +188,6 @@ namespace VK.Data
         /// </summary>
         [JsonProperty("education")]
         public object Education { get; set; }
-
-        // /// <summary>
-        // /// Внешние сервисы, в которые настроен экспорт из ВК (twitter, facebook, livejournal, instagram)
-        // /// </summary>
-        // [JsonProperty("exports")]
-        // public object Exports { get; set; }
-
-        // /// <summary>
-        // /// Имя в заданном падеже
-        // /// </summary>
-        //  [JsonProperty("first_name_case")]
-        //  public object FirstNameCase { get; set; }
 
         /// <summary>
         /// Количество подписчиков пользователя
@@ -268,12 +256,6 @@ namespace VK.Data
         /// </summary>
         [JsonProperty("is_hidden_from_feed")]
         public int IsHiddenFromFeed { get; set; }
-
-        // /// <summary>
-        // /// Фамилия в заданном падеже
-        // /// </summary>
-        //  [JsonProperty("last_name_case")]
-        //  public object LastNameCase { get; set; }
 
         /// <summary>
         /// Время последнего посещения
@@ -434,7 +416,7 @@ namespace VK.Data
         /// дополнительно возвращается объект relation_partner, содержащий id и имя этого человека
         /// </summary>
         [JsonProperty("relation_partner")]
-        public Relative RelationPartner { get; set; }
+        public RelationPartner RelationPartner { get; set; }
 
         /// <summary>
         /// Список школ, в которых учился пользователь
@@ -511,5 +493,98 @@ namespace VK.Data
         /// </summary>
         [JsonProperty("universities")]
         public List<University> Universities { get; set; }
+
+        /// <summary>
+        /// Имя в Skype
+        /// </summary>
+        [JsonProperty("skype")]
+        public string Skype { get; set; }
+
+        /// <summary>
+        /// Идентификатор Facebook
+        /// </summary>
+        [JsonProperty("facebook")]
+        public string Facebook { get; set; }
+
+        /// <summary>
+        /// Имя в Facebook
+        /// </summary>
+        [JsonProperty("facebook_name")]
+        public string FacebookName { get; set; }
+
+        /// <summary>
+        /// Имя в Livejournal
+        /// </summary>
+        [JsonProperty("livejournal")]
+        public string Livejournal { get; set; }
+
+        /// <summary>
+        /// Имя в Twitter
+        /// </summary>
+        [JsonProperty("twitter")]
+        public string Twitter { get; set; }
+
+        /// <summary>
+        /// Имя в Instagram
+        /// </summary>
+        [JsonProperty("instagram")]
+        public string Instagram { get; set; }
+
+        /// <summary>
+        /// Мобильный телефон
+        /// </summary>
+        [JsonProperty("mobile_phone")]
+        public string MobilePhone { get; set; }
+      
+        /// <summary>
+        /// Домашний телефон
+        /// </summary>
+        [JsonProperty("home_phone")]
+        public string HomePhone { get; set; }
+
+        // Для старых профилей видимо так,
+        // надо добавлять в коллекцию универов эти поля если они заполнены
+
+        /// <summary>
+        /// Идентификатор университета (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("university")]
+        public int University { get; set; }
+
+        /// <summary>
+        /// Наименование университета (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("university_name")]
+        public string UniversityName { get; set; }
+
+        /// <summary>
+        /// Идентификатор факультета (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("faculty")]
+        public int Faculty { get; set; }
+
+        /// <summary>
+        /// Наименование факультета (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("faculty_name")]
+        public string FacultyName { get; set; }
+
+        /// <summary>
+        /// Год окончания обучения (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("graduation")]
+        public int Graduation { get; set; }
+
+        /// <summary>
+        /// Форма обучения (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("education_form")]
+        public string EducationForm { get; set; }
+
+        /// <summary>
+        /// Статус(например, «Выпускник (специалист)») (видимо в старых профилях)
+        /// </summary>
+        [JsonProperty("education_status")]
+        public string EducationStatus { get; set; }
     }
 }
