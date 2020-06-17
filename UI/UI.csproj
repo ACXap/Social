@@ -208,6 +208,10 @@
       <Project>{61D4AA99-E465-4817-84F6-58B44DC01BE2}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VK\VK.csproj">
+      <Project>{9C79F60E-F314-40FA-B9FF-C445F7FB72CE}</Project>
+      <Name>VK</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\RT_logo.ico" />

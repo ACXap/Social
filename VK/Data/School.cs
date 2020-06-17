@@ -77,7 +77,7 @@ namespace VK.Data
         /// 10 — "техникум"; 11 — "ПТУ";
         /// 12 — "училище"; 13 — "школа искусств"
         /// </summary>
-        [JsonProperty("type")]
+        [JsonProperty("type_str")]
         public string TypeStr { get; set; }
     }
 }
