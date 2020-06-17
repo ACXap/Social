@@ -22,7 +22,7 @@ namespace VK.Data
         /// <summary>
         /// Идентификатор города(если доступно, иначе city_name)
         /// </summary>
-        [JsonProperty("city")]
+        [JsonProperty("city_id")]
         public int CityId { get; set; }
 
         /// <summary>

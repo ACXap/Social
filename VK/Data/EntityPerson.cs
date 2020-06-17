@@ -111,14 +111,14 @@ namespace VK.Data
         /// 1 — может; 0 — не может
         /// </summary>
         [JsonProperty("can_write_private_message")]
-        public long CanWritePrivateMessage { get; set; }
+        public int CanWritePrivateMessage { get; set; }
 
         /// <summary>
         /// Информация о том, будет ли отправлено уведомление пользователю о заявке в друзья от текущего пользователя
         /// 1 —  уведомление будет отправлено; 0 —  уведомление не будет отправлено
         /// </summary>
         [JsonProperty("can_send_friend_request")]
-        public long CanSendFriendRequest { get; set; }
+        public int CanSendFriendRequest { get; set; }
 
         /// <summary>
         /// Информация о карьере пользователя
@@ -138,30 +138,14 @@ namespace VK.Data
         [JsonProperty("common_count")]
         public int CommonCount { get; set; }
 
-        /// <summary>
-        /// Возвращает данные об указанных в профиле сервисах пользователя,
-        /// таких как: skype, facebook, twitter, livejournal, instagram.
-        /// Для каждого сервиса возвращается отдельное поле с типом string,
-        /// содержащее никнейм пользователя. Например, "instagram": "username".
-        /// </summary>
-        [JsonProperty("connections")]
-        public string Connections { get; set; }
-
-        /// <summary>
-        /// Информация о телефонных номерах пользователя.
-        /// Если данные указаны и не скрыты настройками приватности
-        /// </summary>
-        [JsonProperty("contacts")]
-        public object Contacts { get; set; }
-
-        /// <summary>
-        /// Количество различных объектов у пользователя.
-        /// Поле возвращается только в методе users.get
-        /// при запросе информации об одном пользователе,
-        /// с передачей пользовательского access_token
-        /// </summary>
-        [JsonProperty("counters")]
-        public object Counters { get; set; }
+        // /// <summary>
+        // /// Количество различных объектов у пользователя.
+        // /// Поле возвращается только в методе users.get
+        // /// при запросе информации об одном пользователе,
+        // /// с передачей пользовательского access_token
+        // /// </summary>
+        // [JsonProperty("counters")]
+        // public object Counters { get; set; }
 
         /// <summary>
         /// Информация о стране, указанной на странице пользователя в разделе «Контакты»
@@ -184,16 +168,10 @@ namespace VK.Data
         public string Domain { get; set; }
 
         /// <summary>
-        /// Информация о высшем учебном заведении пользователя
-        /// </summary>
-        [JsonProperty("education")]
-        public object Education { get; set; }
-
-        /// <summary>
         /// Количество подписчиков пользователя
         /// </summary>
         [JsonProperty("followers_count")]
-        public long FollowersCount { get; set; }
+        public int FollowersCount { get; set; }
 
         /// <summary>
         /// Статус дружбы с пользователем. Возможные значения:
@@ -263,12 +241,12 @@ namespace VK.Data
         [JsonProperty("last_seen")]
         public LastSeen LastSeen { get; set; }
 
-        /// <summary>
-        /// Разделенные запятой идентификаторы списков друзей, в которых состоит пользователь.
-        /// Поле доступно только для метода friends.get.
-        /// </summary>
-        [JsonProperty("lists")]
-        public string Lists { get; set; }
+        // /// <summary>
+        // /// Разделенные запятой идентификаторы списков друзей, в которых состоит пользователь.
+        // /// Поле доступно только для метода friends.get.
+        // /// </summary>
+        // [JsonProperty("lists")]
+        // public string Lists { get; set; }
 
         /// <summary>
         /// Девичья фамилия
@@ -319,7 +297,7 @@ namespace VK.Data
         public int OnlineApp { get; set; }
 
         /// <summary>
-        /// Если пользователь использует мобильное приложение либо мобильную версию, 
+        /// Если пользователь использует мобильное приложение либо мобильную версию 
         /// </summary>
         [JsonProperty("online_mobile")]
         public int OnlineMobile { get; set; }
@@ -452,11 +430,11 @@ namespace VK.Data
         [JsonProperty("status")]
         public string Status { get; set; }
 
-        /// <summary>
-        /// Временная зона. Только при запросе информации о текущем пользователе
-        /// </summary>
-        [JsonProperty("timezone")]
-        public int Timezone { get; set; }
+        // /// <summary>
+        // /// Временная зона. Только при запросе информации о текущем пользователе
+        // /// </summary>
+        // [JsonProperty("timezone")]
+        // public int Timezone { get; set; }
 
         /// <summary>
         /// Информация о том, есть ли на странице пользователя «огонёк»
