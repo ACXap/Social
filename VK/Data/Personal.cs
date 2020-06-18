@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace VK.Data
 {
@@ -79,5 +81,18 @@ namespace VK.Data
         /// </summary>
         [JsonProperty("alcohol")]
         public int Alcohol { get; set; }
+
+        public string LangToString()
+        {
+            if (Langs == null || !Langs.Any()) return null;
+
+            var s = new StringBuilder();
+            foreach (var item in Langs)
+            {
+                s.Append($"{item},");
+            }
+
+            return s.ToString().TrimEnd(new char[] { ',' });
+        }
     }
 }
