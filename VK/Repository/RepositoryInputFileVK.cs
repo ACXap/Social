@@ -46,8 +46,8 @@ namespace VK.Repository
                 }
                 catch(Exception ex)
                 {
-                    _logger.AddLog(ex.Message);
-                    _logger.AddLog(item);
+                    _logger?.AddLog(ex.Message);
+                    _logger?.AddLog(item);
                 }
             }
 

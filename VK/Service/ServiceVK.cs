@@ -19,6 +19,8 @@ namespace VK.Service
 
         #region PrivateField
         private readonly IRepositoryInputVK _repositoryInput;
+
+        private string _file;
         #endregion PrivateField
 
         #region PublicProperties
@@ -31,6 +33,8 @@ namespace VK.Service
         #region PublicMethod
         public async Task<Result<EntityPerson>> ProcessingList(string file)
         {
+            _file = file;
+
             Result<EntityPerson> result = new Result<EntityPerson>();
 
             return await Task.Run(() =>
