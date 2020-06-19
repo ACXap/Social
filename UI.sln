@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VK", "VK\VK.csproj", "{9C79
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_db", "test_db\test_db.csproj", "{2A23573B-7B9B-4F94-9FDC-2F213872569C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vkpars", "vkpars\vkpars.csproj", "{D12FF780-F1E8-48C6-80BC-6D483E634347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{2A23573B-7B9B-4F94-9FDC-2F213872569C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A23573B-7B9B-4F94-9FDC-2F213872569C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A23573B-7B9B-4F94-9FDC-2F213872569C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12FF780-F1E8-48C6-80BC-6D483E634347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12FF780-F1E8-48C6-80BC-6D483E634347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12FF780-F1E8-48C6-80BC-6D483E634347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12FF780-F1E8-48C6-80BC-6D483E634347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

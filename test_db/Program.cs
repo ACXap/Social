@@ -1,12 +1,6 @@
-﻿using Npgsql;
-using NpgsqlTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VK.Repository;
 
 namespace test_db
@@ -91,43 +85,7 @@ namespace test_db
 
             }
 
-            // var t = new Stopwatch();
-
-            // t.Start();
-
-            //using (NpgsqlConnection conn = new NpgsqlConnection(s))
-            //{
-            //    conn.Open();
-
-            //    for (int i = 0; i < 1000000; i++)
-            //    {
-            //        using (var cmd = new NpgsqlCommand("fc_test_insert", conn))
-            //        {
-            //            cmd.CommandType = CommandType.StoredProcedure;
-            //            cmd.Parameters.Add(new NpgsqlParameter<string>("_firstname", "qaz"));
-            //            cmd.Parameters.Add(new NpgsqlParameter<string>("_lastname", i.ToString()));
-            //            var reader = cmd.ExecuteScalar();
-            //        }
-            //    }
-            //}
-
-            //using (NpgsqlConnection conn = new NpgsqlConnection(s))
-            //{
-            //    conn.Open();
-            //    using (var writer = conn.BeginBinaryImport($"COPY public.test (firstname,lastname) FROM STDIN BINARY"))
-            //    {
-            //        for (int i = 0; i < 1000000; i++)
-            //        {
-            //            writer.StartRow();
-            //            writer.Write("qaz", NpgsqlDbType.Varchar);
-            //            writer.Write(i.ToString(), NpgsqlDbType.Varchar);
-            //        }
-            //        writer.Complete();
-            //    }
-            //}
-
-            //  t.Stop();
-            // Console.WriteLine(t.ElapsedMilliseconds);
+            Console.WriteLine("Ok");
             Console.ReadLine();
         }
     }
