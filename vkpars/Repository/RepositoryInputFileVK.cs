@@ -37,7 +37,7 @@ namespace vkpars.Repository
                 {
                     _logger?.AddLog(ex.Message);
                     _logger?.AddLog(item);
-                    Console.WriteLine($"Ошибка разбора данных: {ex.Message} В файле log.txt подробности");
+                    Console.WriteLine($"Ошибка разбора данных: {ex.Message} В файле {Path.Combine(Directory.GetCurrentDirectory(), "log.txt")} подробности");
                 }
             }
 

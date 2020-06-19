@@ -19,21 +19,17 @@ namespace vkpars
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Добро пожаловать");
-            Console.WriteLine($"Для работы с файлами, разместите их в папку: {_folder}");
+            StartMessage();
 
-            Init(GetSettings());
-
-            Console.WriteLine($"Проверка соединения... {_repOutput.CheckConnect()}");
+            ConnectDB();
 
             Console.WriteLine(new string('-', 100));
 
-            var files = Directory.GetFiles(_folder);
-            Console.WriteLine($"Всего файлов для обработки: {files.Length}");
+            List<string> files = GetFiles().ToList();
+
+
             var startTime = DateTime.Now;
-
             Console.WriteLine($"Начало обработки: {startTime}");
-
 
             foreach (var item in files)
             {
@@ -50,9 +46,56 @@ namespace vkpars
             Console.WriteLine(new string('-', 100));
             var stopTime = DateTime.Now;
             Console.WriteLine($"Окончание обработки: {stopTime}");
-            Console.WriteLine($"Окончание обработки: {(stopTime - startTime).TotalSeconds}");
+            Console.WriteLine($"Затрачено (сек): {(stopTime - startTime).TotalSeconds}");
 
-            Console.ReadLine();
+            ExitMessage();
+        }
+
+        private static void StartMessage()
+        {
+            Console.WriteLine("Добро пожаловать");
+            Console.WriteLine($"Для работы с файлами, разместите их в папку: {_folder} (txt, csv)");
+            Console.WriteLine($"А так же указать настройки подключения в файле: {Path.Combine(Directory.GetCurrentDirectory(), "set.ini")}");
+
+            Console.WriteLine(new string('-', 100));
+        }
+
+        private static void ConnectDB()
+        {
+            while (true)
+            {
+                try
+                {
+
+                    Init(GetSettings());
+                    Console.Write($"Проверка соединения...");
+                    Console.WriteLine(_repOutput.CheckConnect());
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Проверьте настройки подключения. И попробуйте снова");
+                }
+            }
+        }
+
+        private static IEnumerable<string> GetFiles()
+        {
+            try
+            {
+                var files = Directory.GetFiles(_folder ).Where(x=>x.EndsWith(".txt") || x.EndsWith(".csv") );
+                Console.WriteLine($"Всего файлов для обработки: {files.Count()}");
+                return files;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ExitMessage();
+                Environment.Exit(-1);
+            }
+
+            return null;
         }
 
         private static void ProcessUniver(List<EntityPerson> persons)
@@ -171,16 +214,25 @@ namespace vkpars
         {
             var str = File.ReadAllLines("set.ini");
 
+            var user = str[2].Split('=')[1].Trim();
+            Console.WriteLine($"Пользователь: {user}");
+
             return new SettingsConnect()
             {
                 Server = str[0].Split('=')[1].Trim(),
                 Port = int.Parse(str[1].Split('=')[1].Trim()),
-                UserId = str[2].Split('=')[1].Trim(),
+                UserId = user,
                 Database = str[3].Split('=')[1].Trim(),
                 Timeout = int.Parse(str[4].Split('=')[1].Trim()),
                 CommandTimeout = int.Parse(str[4].Split('=')[1].Trim()),
                 Password = GetPass()
             };
+        }
+
+        private static void ExitMessage()
+        {
+            Console.WriteLine("Для выхода, нажмите любую клавишу");
+            Console.ReadKey();
         }
 
         private static SecureString GetPass()
